@@ -7,10 +7,10 @@ document.addEventListener('DOMContentLoaded', function() {
             this.APP_VERSION = APP_CONFIG.VERSION;
             this.CACHE_NAME = `spa-pwa-cache-v${this.APP_VERSION}`;
             this.pages = {
-                page1: `/pages/page1.html`,
-                page2: `/pages/page2.html`,
-                page3: `/pages/page3.html`,
-                page4: `/pages/page4.html`,
+                page1: `pages/page1.html`,
+                page2: `pages/page2.html`,
+                page3: `pages/page3.html`,
+                page4: `pages/page4.html`,
             };
             this.currentPage = null;
             this.isUpdateAvailable = false;
@@ -28,8 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if ('serviceWorker' in navigator) {
                 try {
                     const registration = await navigator.serviceWorker.register(
-                        `/sw.js`, 
-                        { scope: '/' }
+                        `sw.js`
                     );
                     
                     registration.addEventListener('updatefound', () => {
@@ -160,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Create new link element for the page-specific stylesheet
             const link = document.createElement('link');
-            link.href = `/styles/${page}.css?ver=${this.APP_VERSION}`;
+            link.href = `styles/${page}.css?ver=${this.APP_VERSION}`;
             link.id = 'page-specific-style';
             link.rel = 'stylesheet';
             
