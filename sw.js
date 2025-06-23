@@ -1,5 +1,5 @@
 // Import the version constant
-importScripts('/config.js');
+importScripts('config.js');
 
 
 const CACHE_NAME = `spa-pwa-cache-v${APP_CONFIG.VERSION}`;
