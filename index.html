@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA PWA Example</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="manifest" href="/manifest.json">
+    <style>
+        #toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 1000;
+        }
+        #toast button {
+            margin-left: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <p>simple SPA PWA with hash based navigation</p>
+    <p>Cache busted versioning and graceful update handling</p>
+
+    <nav>
+        <ul id="nav-menu">
+            <li><a href="#page1" class="nav-link">Page 1</a></li>
+            <li><a href="#page2" class="nav-link">Page 2</a></li>
+            <li><a href="#page3" class="nav-link">Page 3</a></li>
+            <li><a href="#page4" class="nav-link">Page 4</a></li>
+        </ul>
+    </nav>
+    
+    <main id="content"></main>
+    
+    <div id="toast">
+        <span id="toast-message">A new version is available!</span>
+        <button id="refresh-btn">Refresh</button>
+    </div>
+
+    <!-- Add this somewhere in your body -->
+  <div id="app-version" style="position: fixed; bottom: 10px; right: 10px;">
+      Version: <span id="version-display"></span>
+  </div>
+
+
+
+
+  <!-- Keep only config.js -->
+<script src="/config.js"></script>
+<script src="/app.js"></script>
+
+<script>
+    // Update version display
+    document.getElementById('version-display').textContent = APP_CONFIG.VERSION;
+</script>
+
+
+</body>
+</html>
